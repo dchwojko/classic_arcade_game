@@ -26,10 +26,10 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 
 
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-
 
 
 // This listens for key presses and sends the keys to your
