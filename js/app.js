@@ -26,7 +26,9 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 class Player {
     constructor() {
-
+        this.x = 0;
+        this.y = 0;
+        this.sprite = "images/char-boy.png";
     }
 
     update() {
@@ -34,7 +36,7 @@ class Player {
     }
 
     render() {
-
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 
     handleInput() {
