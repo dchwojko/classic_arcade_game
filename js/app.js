@@ -44,10 +44,27 @@ class Player {
     }
 
     update() {
+        if (this.y < 0) {
+            console.log('WINNER!');
+        }
+        if (this.y < -41.5) {
+            this.y = -41.5;
+        }
+        if (this.y > 373.5) {
+            this.y = 373.5;
+        }
 
+        if (this.x < 0) {
+            this.x = 0;
+        }
+
+        if (this.x > 404) {
+            this.x = 404;
+        }
     }
 
     render() {
+        console.log(`${this.x},${this.y}`)
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 
