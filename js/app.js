@@ -15,7 +15,7 @@ class Enemy {
 
             // min-max speed for enemy bugs = 100-500
             this.speed = 100 + 40 * Math.floor(Math.random() * 11);
-        }
+        }        
     }
 
     render() {
@@ -36,11 +36,24 @@ class Player {
             'images/char-princess-girl.png'
         ];
         this.sprite = this.sprites[this.currentSprite];
+        this.lives = 3;
+        this.updateLives(this.lives);
+    }
+
+    updateLives(n) {
+        const hearts = document.querySelector('.hearts');
+        var html = "";
+        for (let i = 0; i<n; i++) {
+            html += `<img src="images/Heart.png" alt="heart" />`;
+        }
+        hearts.innerHTML = html;
     }
 
     update() {
         if (this.y < 0) {
             console.log('WINNER!');
+            this.x = 202;
+            this.y = 373.5;
         }
         if (this.y < -41.5) {
             this.y = -41.5;

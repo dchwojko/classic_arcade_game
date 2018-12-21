@@ -83,7 +83,7 @@ var Engine = (function(global) {
     }
 
     function checkCollisions() {
-        console.log("TO DO: handle checkCollisions in engine.js")   
+        //console.log("TO DO: handle checkCollisions in engine.js")   
     }
 
     /* This is called by the update function and loops through all of the
@@ -181,7 +181,8 @@ var Engine = (function(global) {
         'images/char-cat-girl.png',
         'images/char-horn-girl.png',
         'images/char-pink-girl.png',
-        'images/char-princess-girl.png'
+        'images/char-princess-girl.png',
+        'images/Heart.png'
     ]);
     Resources.onReady(init);
 
