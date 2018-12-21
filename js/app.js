@@ -39,8 +39,21 @@ class Player {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 
-    handleInput() {
-
+    handleInput(keyCode) {
+        switch(keyCode) {
+            case 'left':
+                console.log('left');
+                break;
+            case 'up':
+                console.log('up');
+                break;
+            case 'right':
+                console.log('right');
+                break;
+            case 'down':
+                console.log('down');
+                break;
+        }
     }
 }
 
