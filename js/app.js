@@ -42,16 +42,16 @@ class Player {
     handleInput(keyCode) {
         switch(keyCode) {
             case 'left':
-                console.log('left');
+                this.x -= 50.5;
                 break;
             case 'up':
-                console.log('up');
+                this.y -= 83/2;
                 break;
             case 'right':
-                console.log('right');
+                this.x += 50.5;
                 break;
             case 'down':
-                console.log('down');
+                this.y += 83/2;
                 break;
         }
     }
