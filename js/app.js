@@ -1,39 +1,28 @@
 // Enemies our player must avoid
-var Enemy = function(x,y,speed) {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
-    this.x = x;
-    this.y = y;
-    this.speed = speed;
-    this.sprite = 'images/enemy-bug.png';
-};
-
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
-Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-    this.x += this.speed * dt;
-
-    if (this.x > 505) {
-        this.x = -101;
-        this.speed = 100 + 40 * Math.floor(Math.random() * 11); 
-        console.log(this.speed);
+class Enemy {
+    constructor(x,y) {
+        this.x = x;
+        this.y = y;
+        this.speed = 100 + 40 * Math.floor(Math.random() * 11);
+        this.sprite = 'images/enemy-bug.png';
     }
-};
 
-// Draw the enemy on the screen, required method for game
-Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
+    update(dt) {
+        this.x += this.speed * dt;
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+        if (this.x > 505) {
+            this.x = -101;
+
+            // min-max speed for enemy bugs = 100-500
+            this.speed = 100 + 40 * Math.floor(Math.random() * 11);
+        }
+    }
+
+    render() {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    };
+}
+
 class Player {
     constructor() {
         this.x = 202;
@@ -103,7 +92,7 @@ class Player {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-const allEnemies = [new Enemy(-101,41.5,500), new Enemy(-101,124.5, 100), new Enemy(-101,207.5,100)]
+const allEnemies = [new Enemy(-101,41.5), new Enemy(-101,124.5), new Enemy(-101,207.5)]
 const player = new Player()
 
 
