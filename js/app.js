@@ -32,7 +32,15 @@ class Player {
     constructor() {
         this.x = 0;
         this.y = 0;
-        this.sprite = "images/char-boy.png";
+        this.currentSprite = 0;
+        this.sprites = [
+            'images/char-boy.png',
+            'images/char-cat-girl.png',
+            'images/char-horn-girl.png',
+            'images/char-pink-girl.png',
+            'images/char-princess-girl.png'
+        ];
+        this.sprite = this.sprites[this.currentSprite];
     }
 
     update() {
@@ -40,7 +48,6 @@ class Player {
     }
 
     render() {
-        console.log(`${this.x} ${this.y}`)
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 
@@ -57,6 +64,13 @@ class Player {
                 break;
             case 'down':
                 this.y += 83/2;
+                break;
+            case 'p':
+                this.currentSprite++;
+                if (this.currentSprite == this.sprites.length) {
+                    this.currentSprite = 0;
+                }
+                this.sprite = this.sprites[this.currentSprite];
                 break;
         }
     }
@@ -77,7 +91,8 @@ document.addEventListener('keydown', function(e) {
         37: 'left',
         38: 'up',
         39: 'right',
-        40: 'down'
+        40: 'down',
+        80: 'p'
     };
 
     player.handleInput(allowedKeys[e.keyCode]);
