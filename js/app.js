@@ -40,6 +40,7 @@ class Player {
     }
 
     render() {
+        console.log(`${this.x} ${this.y}`)
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 
@@ -65,7 +66,7 @@ class Player {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-const allEnemies = [new Enemy(0,0,100)]
+const allEnemies = [new Enemy(0,41.5,100), new Enemy(0,124.5, 100), new Enemy(0,207.5,100)]
 const player = new Player()
 
 
