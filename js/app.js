@@ -15,7 +15,18 @@ class Enemy {
 
             // min-max speed for enemy bugs = 100-500
             this.speed = 100 + 40 * Math.floor(Math.random() * 11);
-        }        
+        }
+
+        // check for enemy-player collision
+        if (player.y == this.y && player.x < this.x + 50 && player.x > this.x - 50) {
+            player.lives--;
+            player.updateLives(player.lives);
+            player.x = 202;
+            player.y = 373.5;
+            if (player.lives == 0) {
+                console.log('LOSER');
+            }
+        }
     }
 
     render() {
