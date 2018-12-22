@@ -21,10 +21,12 @@ class Enemy {
         if (player.y == this.y && player.x < this.x + 50 && player.x > this.x - 50) {
             player.lives--;
             player.updateLives(player.lives);
-            player.x = 202;
-            player.y = 373.5;
+            player.init();
             if (player.lives == 0) {
-                console.log('LOSER');
+                alert("LOSER!");
+                player.init();
+                player.lives = 3;
+                player.updateLives(player.lives);
             }
         }
     }
@@ -36,8 +38,7 @@ class Enemy {
 
 class Player {
     constructor() {
-        this.x = 202;
-        this.y = 373.5;
+        this.init()
         this.currentSprite = 0;
         this.sprites = [
             'images/char-boy.png',
@@ -51,6 +52,11 @@ class Player {
         this.updateLives(this.lives);
     }
 
+    init() {
+        this.x = 202;
+        this.y = 373.5;
+    }
+
     updateLives(n) {
         const hearts = document.querySelector('.hearts');
         var html = "";
@@ -62,9 +68,8 @@ class Player {
 
     update() {
         if (this.y < 0) {
-            console.log('WINNER!');
-            this.x = 202;
-            this.y = 373.5;
+            alert("WINNER!")
+            this.init();
         }
         if (this.y < -41.5) {
             this.y = -41.5;
@@ -83,30 +88,39 @@ class Player {
     }
 
     render() {
-        console.log(`${this.x},${this.y}`)
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 
     handleInput(keyCode) {
+        const xDelta = 50.5;
+        const yDelta = 41.5;
+        
         switch(keyCode) {
             case 'left':
-                this.x -= 50.5;
+                this.x -= xDelta;
                 break;
             case 'up':
-                this.y -= 83/2;
+                this.y -= yDelta;
                 break;
             case 'right':
-                this.x += 50.5;
+                this.x += xDelta;
                 break;
             case 'down':
-                this.y += 83/2;
+                this.y += yDelta;
                 break;
+            // change player sprite
             case 'p':
                 this.currentSprite++;
                 if (this.currentSprite == this.sprites.length) {
                     this.currentSprite = 0;
                 }
                 this.sprite = this.sprites[this.currentSprite];
+                break;
+            // Reset player position and lives
+            case 'r':
+                player.init();
+                player.lives = 3;
+                player.updateLives(3);
                 break;
         }
     }
@@ -133,7 +147,8 @@ document.addEventListener('keydown', function(e) {
         38: 'up',
         39: 'right',
         40: 'down',
-        80: 'p'
+        80: 'p',
+        82: 'r'
     };
 
     player.handleInput(allowedKeys[e.keyCode]);
