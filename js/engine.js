@@ -19,7 +19,7 @@
          this.win = window;
          this.canvas = this.doc.createElement('canvas');
          this.ctx = this.canvas.getContext('2d');
-         this.lastTiem = null;
+         this.lastTime = null;
          this.canvas.width = 1010;
          this.canvas.height = 1212;
          this.doc.body.appendChild(this.canvas);
