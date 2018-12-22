@@ -95,6 +95,7 @@ var Engine = (function(global) {
      */
     function updateEntities(dt) {
         player.update();
+        player2.update();
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });   
@@ -163,6 +164,7 @@ var Engine = (function(global) {
             enemy.render();
         });
         player.render();
+        player2.render();
     }
 
     /* This function does nothing but it could have been a good place to

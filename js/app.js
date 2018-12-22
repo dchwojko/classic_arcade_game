@@ -23,7 +23,26 @@ class Enemy {
             player.updateLives(player.lives);
             player.init();
             if (player.lives == 0) {
-                alert("Sorry, you lost!");
+                alert(`Player ${player.id} loses!`);
+                player.init();
+                player.lives = 3;
+                player.updateLives(player.lives);
+                player2.init();
+                player2.lives = 3;
+                player2.updateLives(player2.lives);
+            }
+        }
+        
+        // check for enemy-player collision
+        if (player2.y == this.y && player2.x < this.x + 50 && player2.x > this.x - 50) {
+            player2.lives--;
+            player2.updateLives(player2.lives);
+            player2.init();
+            if (player2.lives == 0) {
+                alert(`Player ${player2.id} loses!`)
+                player2.init();
+                player2.lives = 3;
+                player2.updateLives(player2.lives);
                 player.init();
                 player.lives = 3;
                 player.updateLives(player.lives);
@@ -37,7 +56,8 @@ class Enemy {
 }
 
 class Player {
-    constructor() {
+    constructor(id) {
+        this.id = id;
         this.init()
         this.currentSprite = 0;
         this.sprites = [
@@ -60,7 +80,10 @@ class Player {
 
     // update the number of lives (hearts) displayed in the game
     updateLives(n) {
-        const hearts = document.querySelector('.hearts');
+        const id = `.hearts${this.id}`
+        console.log(id)
+        const hearts = document.querySelector(id);
+        console.log(hearts);
         var html = "";
         for (let i = 0; i<n; i++) {
             html += `<img src="images/Heart.png" alt="heart" />`;
@@ -71,7 +94,7 @@ class Player {
     // player position checks to prevent user from moving off of the board; checks for winning condition
     update() {
         if (this.y < 0) {
-            alert("WINNER!")
+            alert(`Player ${this.id} wins!`)
             this.init();
             this.lives = 3;
             this.updateLives(this.lives);
@@ -104,19 +127,24 @@ class Player {
 
         switch(keyCode) {
             case 'left':
+            case 'a':
                 this.x -= xDelta;
                 break;
             case 'up':
+            case 'w':
                 this.y -= yDelta;
                 break;
             case 'right':
+            case 'd':
                 this.x += xDelta;
                 break;
             case 'down':
+            case 's':
                 this.y += yDelta;
                 break;
             // change player sprite
             case 'p':
+            case 'q':
                 this.currentSprite++;
                 if (this.currentSprite == this.sprites.length) {
                     this.currentSprite = 0;
@@ -125,9 +153,9 @@ class Player {
                 break;
             // Reset player position and lives
             case 'r':
-                player.init();
-                player.lives = 3;
-                player.updateLives(3);
+                this.init();
+                this.lives = 3;
+                this.updateLives(3);
                 break;
         }
     }
@@ -149,7 +177,8 @@ const allEnemies = [
     new Enemy(-101,705.5),
     new Enemy(-101,788.5)
 ]
-const player = new Player()
+const player = new Player(1)
+const player2 = new Player(2);
 
 
 // This listens for key presses and sends the keys to your
@@ -164,5 +193,14 @@ document.addEventListener('keydown', function(e) {
         82: 'r'
     };
 
+    var allowedKeys2 = {
+        65: 'a',
+        68: 'd',
+        83: 's',
+        87: 'w',
+        81: 'q'
+    }
+
     player.handleInput(allowedKeys[e.keyCode]);
+    player2.handleInput(allowedKeys2[e.keyCode])
 });
