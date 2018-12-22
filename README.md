@@ -1,5 +1,7 @@
 # Classic Arcade Game Clone Project
 
+![Screenshot](screenshot.png)
+
 ## Table of Contents
 
 - [Instructions](#instructions)
