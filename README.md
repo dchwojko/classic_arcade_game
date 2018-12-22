@@ -7,14 +7,23 @@
 
 ## Instructions
 
-Use this [rubric](https://review.udacity.com/#!/rubrics/15/view) for self-checking your submission.
+## Loading the Game
+To load the game, open index.html in the browser.
 
-Make sure the functions you write are **object-oriented** - either class functions (like `Player` and `Enemy`) or class prototype functions such as `Enemy.prototype.checkCollisions`. Also make sure that the keyword `this` is used appropriately within your class and class prototype functions to refer to the object the function is called upon.
+## Goal
+The goal of the game is to get your character from the grass to the water and not get hit by any of the enemy bugs.
+You start with 3 lives (hearts). Each time you are hit by any of the enemy bugs, you lose a life.
+When you lose all 3 lives, you lose the game and the game resets.
 
-Your **README.md** file should be updated with instructions on both how to 1. Run and 2. Play your arcade game.
+### Moving
+Use the arrow keys to move your player
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+### Character Selection
+To select a new character, press the 'p' key.
+
+### Reset
+To reset the game, press the 'r' key.
 
 ## Contributing
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+This code is based on the Udacity starter code located at: https://github.com/udacity/frontend-nanodegree-arcade-game

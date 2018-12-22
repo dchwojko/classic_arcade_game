@@ -52,11 +52,13 @@ class Player {
         this.updateLives(this.lives);
     }
 
+    // default player position
     init() {
-        this.x = 404 + 50.5;
+        this.x = 454.5;
         this.y = 871.5;
     }
 
+    // update the number of lives (hearts) displayed in the game
     updateLives(n) {
         const hearts = document.querySelector('.hearts');
         var html = "";
@@ -66,6 +68,7 @@ class Player {
         hearts.innerHTML = html;
     }
 
+    // player position checks to prevent user from moving off of the board; checks for winning condition
     update() {
         if (this.y < 0) {
             alert("WINNER!")
@@ -87,10 +90,12 @@ class Player {
         }
     }
 
+    // render the player sprite
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 
+    // handle key codes (arrows, p => player select, r => reset game)
     handleInput(keyCode) {
         const xDelta = 50.5;
         const yDelta = 41.5;
