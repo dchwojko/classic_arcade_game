@@ -148,8 +148,8 @@ const allEnemies = [
     new Enemy(-101,622.5),
     new Enemy(-101,705.5),
     new Enemy(-101,788.5)
-]
-const player = new Player()
+];
+const player = new Player();
 
 
 // This listens for key presses and sends the keys to your
