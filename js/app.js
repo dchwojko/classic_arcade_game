@@ -23,7 +23,7 @@ class Enemy {
             player.updateLives(player.lives);
             player.init();
             if (player.lives == 0) {
-                alert("LOSER!");
+                alert("Sorry, you lost!");
                 player.init();
                 player.lives = 3;
                 player.updateLives(player.lives);
