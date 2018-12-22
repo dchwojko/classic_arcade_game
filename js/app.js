@@ -10,7 +10,7 @@ class Enemy {
     update(dt) {
         this.x += this.speed * dt;
 
-        if (this.x > 505) {
+        if (this.x > 1010) {
             this.x = -101;
 
             // min-max speed for enemy bugs = 100-500
@@ -53,8 +53,8 @@ class Player {
     }
 
     init() {
-        this.x = 202;
-        this.y = 373.5;
+        this.x = 404 + 50.5;
+        this.y = 871.5;
     }
 
     updateLives(n) {
@@ -74,16 +74,16 @@ class Player {
         if (this.y < -41.5) {
             this.y = -41.5;
         }
-        if (this.y > 373.5) {
-            this.y = 373.5;
+        if (this.y > 871.5) {
+            this.y = 871.5;
         }
 
         if (this.x < 0) {
             this.x = 0;
         }
 
-        if (this.x > 404) {
-            this.x = 404;
+        if (this.x > 909) {
+            this.x = 909;
         }
     }
 
@@ -94,7 +94,7 @@ class Player {
     handleInput(keyCode) {
         const xDelta = 50.5;
         const yDelta = 41.5;
-        
+
         switch(keyCode) {
             case 'left':
                 this.x -= xDelta;
@@ -134,7 +134,13 @@ const allEnemies = [
     new Enemy(-101,41.5),
     new Enemy(-101,124.5),
     new Enemy(-101,207.5),
-    new Enemy(-101,290.5)
+    new Enemy(-101,290.5),
+    new Enemy(-101,373.5),
+    new Enemy(-101,456.5),
+    new Enemy(-101,539.5),
+    new Enemy(-101,622.5),
+    new Enemy(-101,705.5),
+    new Enemy(-101,788.5)
 ]
 const player = new Player()
 

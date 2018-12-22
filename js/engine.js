@@ -24,8 +24,8 @@ var Engine = (function(global) {
         ctx = canvas.getContext('2d'),
         lastTime;
 
-    canvas.width = 505;
-    canvas.height = 606;
+    canvas.width = 1010;
+    canvas.height = 1212;
     doc.body.appendChild(canvas);
 
     /* This function serves as the kickoff point for the game loop itself
@@ -112,14 +112,20 @@ var Engine = (function(global) {
          */
         var rowImages = [
                 'images/water-block.png',   // Top row is water
-                'images/stone-block.png',   // Row 1 of 4 of stone
-                'images/stone-block.png',   // Row 2 of 4 of stone
-                'images/stone-block.png',   // Row 3 of 4 of stone
-                'images/stone-block.png',   // Row 4 of 4 of stone
+                'images/stone-block.png',   // Row 1 of 10 of stone
+                'images/stone-block.png',   // Row 2 of 10 of stone
+                'images/stone-block.png',   // Row 3 of 10 of stone
+                'images/stone-block.png',   // Row 4 of 10 of stone
+                'images/stone-block.png',   // Row 5 of 10 of stone
+                'images/stone-block.png',   // Row 6 of 10 of stone
+                'images/stone-block.png',   // Row 7 of 10 of stone
+                'images/stone-block.png',   // Row 8 of 10 of stone
+                'images/stone-block.png',   // Row 9 of 10 of stone
+                'images/stone-block.png',   // Row 10 of 10 of stone
                 'images/grass-block.png'   // Row 1 of 1 of grass
             ],
-            numRows = 6,
-            numCols = 5,
+            numRows = 12,
+            numCols = 10,
             row, col;
 
         // Before drawing, clear existing canvas
