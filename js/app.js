@@ -73,6 +73,8 @@ class Player {
         if (this.y < 0) {
             alert("WINNER!")
             this.init();
+            this.lives = 3;
+            this.updateLives(this.lives);
         }
         if (this.y < -41.5) {
             this.y = -41.5;
